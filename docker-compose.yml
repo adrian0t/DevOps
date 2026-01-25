@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+
+  my-web-app:
+    build: .
+    ports:
+      - "8000:8000"
+    networks:
+      - my-network
+
+  my-db:
+    image: redis:alpine
+    networks:
+      - my-network
+
+
+networks:
+  my-network:
+    driver: bridge
+
